@@ -1,1 +1,5 @@
 # JS
+
+```
+npm install
+```

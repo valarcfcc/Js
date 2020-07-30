@@ -1,3 +1,38 @@
+const e = require("express");
+
+function isArray(value) {
+  if (value instanceof Array) {
+    console.log("isArray = true");
+    console.log(value.toString());
+  }
+}
+let array = ['red', 'green'];
+isArray(array);
+//栈
+array.push("balck");
+array.push("brown");
+console.log(array.toString());
+array.pop();
+
+console.log(array.toString());
+// 队列
+console.log(array.shift());
+console.log(array.toString());
+
+function compare(value1, value2) {
+  if (value1 < value2) {
+    return -1;
+  } else if (value1 > value2) {
+    return 1;
+
+  } else {
+    return 0;
+  }
+}
+//排序
+let values = [0, 1, 29, 3, 22, 68, 8];
+values.sort(compare);
+console.log(values);
 var colors = ['red', 'green'];
 // 创建新数组
 var colors2 = colors.concat("yellow", ["black", "brown"])
