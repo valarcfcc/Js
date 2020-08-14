@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./select.css" type="text/css">
+    <script src="../static/lib/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#one")
+                .css("background", "#bbffaa");
+        })
+    </script>
+</head>
+
+<body>
+
+    <div class="one" id="one"> id为one.class 为 one 的 div
+        <div class="mini">c1ass为mini</div>
+    </div>
+    <div class="one" id="two" title="test">
+        1d为 two.c1ass 为 one.tit1e 为test 的div.
+        <div class="mini" title="other">class为mini,title为other</div>
+        <div class="mini" title="test">class为mini.title为test</div>
+    </div>
+    <div class="one">
+        <div class="mini">class为mini</div>
+        <div class="mini">class为 mini</div>
+        <div class="mini">c1ass 为mini</div>
+        <div class="mini"></div>
+    </div>
+    <div class="one">
+        <div class="mini">class为mini </div>
+        <div class="mini">class 为mini</div>
+        <div class="mini"> class 为mini</div>
+        <div class="mini" title="tesst">c1ass为mimi.tit1e为tesst</div>
+    </div>
+    <div style="display:none;" class="none">
+        style 的display为"none"的 div
+    </div>
+    <div class="hide">class为"hide"的 div</div>
+    <div>
+        包含input的 type为"hidden"的div<input type="hidden" size="8" />
+    </div>
+    <span id="mover">正在执行动画的Span元素，</span>
+
+</body>
+
+</html>
