@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF=8">
+    <meta name="viewport" content="width=device=width, initial=scale=/.0">
+    <title>Document</title>
+    <script src="../static/lib/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $li = $("ul li:eq(1)");
+            var li_text = $li.text();
+            // alert(li_text);
+            var $li_1 = $("<li title='1'>1</li>");
+            var $li_2 = $("<li title='2'>2</li>");
+            $("ul").append($li_1).append($li_2);
+        });
+
+        $(function () {
+            $("#address").focus(function () {
+                //地址框获得鼠标焦点
+                var txt_value = $(this).val(); // 得到当前文本框的值
+                if (txt_value == "请输入邮箱地址") {
+                    $(this).val("");
+                    // 如果符合条件， 则清空文本框内容
+                }
+            });
+
+            $("#address").blur(function () {
+                // 地址框失去鼠标焦点
+                var txt_value = $(this).val();
+                // 得到当前文本框的值
+                if (txt_value == "") {
+                    $(this).val("请输入邮箱地址"); // 如果符合条件， 则设置内容
+                }
+            }) //对密码框进行操作
+            $("#password").focus(function () {
+                var txt_value = $(this).val();
+                if (txt_value == "请输入邮箱密码") {
+                    $(this).val("");
+                }
+            });
+            $("#password").blur(
+                function () {
+                    var txt_value = $(this).val();
+                    if (txt_value == "") {
+                        $(this).val("请输入邮箱密码");
+
+                    }
+                })
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="address" value="请输入邮箱地址" />
+    <br />
+    <br />
+    <input type="text" id="password" value="请输入邮箱密码" /> <br />
+
+    <input type="button" value="登录" />
+    <p title="选择水果。">喜欢的水果？</p>
+    <ul>
+        <li title="苹果">苹果</li>
+        <li title="橘子">橘子</li>
+        <li title="菠萝">菠萝</li>
+    </ul>
+</body>
+
+</html>
