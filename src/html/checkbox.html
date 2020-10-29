@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../static/lib/jquery.js"></script>
+    <script type="text/javascript">
+        function select1() {
+            // console.log("1");
+        }
+
+        function submit() {
+            var subject = new Array;
+            subject = $(":input[name='subject']");
+            for (let i = 0; i < subject.length; i++) {
+                if (subject[i].checked) {
+                    let value = subject[i].value;
+                    let begin = value.lastIndexOf("-");
+                    let end = value.indexOf("INVCODE");
+                    let refCode = value.substring(begin + 1, end);
+                    console.log(refCode)
+                    let invcodeId = refCode + "INVCODE";
+                     console.log(invcodeId)
+                    let invcodeValue = $("#"+invcodeId).val();
+                    console.log(invcodeValue)
+                }
+
+            }
+        }
+
+        function copyText() {
+            document.getElementById("field2").value = document.getElementById("field1").value;
+        }
+        $(document).ready(function () {
+            var subject = new Array;
+            subject = $(":input[name='subject']");
+            for (let i = 0; i < subject.length; i++) {
+                if (subject[i].checked) {
+                    let element = subject[i];
+                    // console.log(element.value);
+                }                               
+
+            }
+
+            $(":input[name='subject']").click(function () {
+                var subject = new Array;
+                subject = $(":input[name='subject']");
+                for (let i = 0; i < subject.length; i++) {
+                    if (subject[i].checked) {
+                        let element = subject[i];
+                        // console.log(element.value);
+                    }
+
+                }
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+    Field1: <input type="text" id="field1" value="Hello World!"><br>
+    Field2: <input type="text" id="field2"><br><br>
+
+    <button onclick="copyText()">复制文本</button>
+
+    <p>当按钮被单击时触发函数。此函数把文本从 Field1 复制到 Field2 中。</p>
+    <label>科目：</label>
+
+    <input name="subject" id="test-10-7-1235551INVCODE" type="checkbox" value="test-10-7-1235551INVCODE"
+        onclick="select1()" /><label>语文</label>
+    <input id="1235551INVCODE" value="1" type="hidden" />
+    <input name="subject" id="test-10-7-1235552INVCODE" type="checkbox" checked value="test-10-7-1235552INVCODE"
+        onclick="select1()" /><label>数学</label>
+    <input id="1235552INVCODE" value="12" type="hidden" />
+    <input name="subject" id="test-10-7-1235553INVCODE" type="checkbox" checked="checked"
+        value="test-10-7-1235553INVCODE" onclick="select1()" /><label>英语</label>
+    <input id="1235553INVCODE" value="123" type="hidden" />
+    <input name="subject" id="test-10-7-1235554INVCODE" type="checkbox" value="test-10-7-1235554INVCODE"
+        onclick="select1()" /><label>体育</label>
+
+    <input id="1235554INVCODE" value="1234" type="hidden" />
+</body>
+<input type="button" onclick="submit()">
+
+</html>
