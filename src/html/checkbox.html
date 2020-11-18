@@ -22,8 +22,8 @@
                     let refCode = value.substring(begin + 1, end);
                     console.log(refCode)
                     let invcodeId = refCode + "INVCODE";
-                     console.log(invcodeId)
-                    let invcodeValue = $("#"+invcodeId).val();
+                    console.log(invcodeId)
+                    let invcodeValue = $("#" + invcodeId).val();
                     console.log(invcodeValue)
                 }
 
@@ -40,7 +40,7 @@
                 if (subject[i].checked) {
                     let element = subject[i];
                     // console.log(element.value);
-                }                               
+                }
 
             }
 
@@ -84,7 +84,8 @@
         onclick="select1()" /><label>体育</label>
 
     <input id="1235554INVCODE" value="1234" type="hidden" />
+    <input type="button" onclick="submit()">
+
 </body>
-<input type="button" onclick="submit()">
 
 </html>

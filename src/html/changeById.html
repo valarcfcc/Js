@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../static/lib/jquery.js"></script>
+    <script type="text/javascript">
+        function submit() {
+            var subject = new Array;
+            subject = $(":input[name='subject']");
+            for (var i = 0; i < subject.length; i++) {
+                if (subject[i].checked) {
+                    var value = subject[i].value;
+                    var begin = value.lastIndexOf("-");
+                    var end = value.indexOf("INVCODE");
+                    var refCode = value.substring(begin + 1, end);
+                    console.log(refCode)
+                    var invcodeId = refCode + "INVCODE";
+                    console.log(invcodeId)
+                    var invcodeValue = $("#" + invcodeId).val();
+                    console.log(invcodeValue)
+                }
+
+            }
+        }
+        $(document).ready(function () {
+            var $refCode = new Array;
+            $refCode = $(":input[name='pk']");
+            for (var i = 0; i < $refCode.length; i++) {
+                var value = $refCode[i].value;
+                var begin = value.lastIndexOf("-");
+                var end = value.indexOf("INVCODE");
+                var refCode = value.substring(begin + 1, end);
+                console.log(refCode);
+                var id_amt0 = "id_amt0_" + refCode;
+                var id_amt1 = "id_amt1_" + refCode;
+                var id_amt2 = "id_amt2_" + refCode;
+                console.log(id_amt0 + ":" + $("#" + id_amt0).val());
+                console.log(id_amt1 + ":" + $("#" + id_amt1).val());
+                console.log(id_amt2 + ":" + $("#" + id_amt2).val());
+                $("#" + id_amt0).bind("input propertychange",{id_amt0:id_amt0,id_amt1:id_amt1,id_amt2,id_amt2}, function (event) {
+                    var amt2 = Number($("#" + event.data.id_amt2).val());
+                    console.log(amt2);
+                    amt2 = Number($("#" + event.data.id_amt0).val()) + Number($("#" + event.data.id_amt1).val());
+                    $("#" + event.data.id_amt2).val(amt2);
+                    console.log("aaa" + id_amt2 + ":" + $("#" + event.data.id_amt2).val());
+                });
+                $("#" + id_amt1).bind("input propertychange", function () {
+                    var amt2 = Number($("#" + id_amt2).val());
+                    amt2 = Number($("#" + id_amt0).val()) + Number($("#" + id_amt1).val());
+                    $("#" + id_amt2).val(amt2);
+                    console.log("aaa" + id_amt2 + ":" + $("#" + id_amt2).val());
+                });
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td style="display: none;">
+                <input name="pk" type="checkbox" value="test-10-7-1INVCODE" checked>
+            </td>
+            <td> <input id="id_amt0_1" value="1" type="text" name="amt0_1" /></td>
+            <td> <input id="id_amt1_1" value="1" type="text" name="amt1_1" /></td>
+            <td> <input id="id_amt2_1" value="1" type="text" name="amt2_1" /></td>
+        </tr>
+        <tr>
+            <td style="display: none;">
+                <input name="pk" type="checkbox" value="test-10-7-2INVCODE" checked>
+            </td>
+            <td> <input id="id_amt0_2" value="2" type="text" name="amt0_2" /></td>
+            <td> <input id="id_amt1_2" value="2" type="text" name="amt1_2" /></td>
+            <td> <input id="id_amt2_2" value="2" type="text" name="amt2_2" /></td>
+        </tr>
+        <tr>
+            <td style="display: none;">
+                <input name="pk" type="checkbox" value="test-10-7-3INVCODE" checked>
+            </td>
+            <td> <input id="id_amt0_3" value="3" type="text" name="amt0_3" /></td>
+            <td> <input id="id_amt1_3" value="4" type="text" name="amt1_3" /></td>
+            <td> <input id="id_amt2_3" value="5" type="text" name="amt2_3" /></td>
+        </tr>
+    </table>
+</body>
+
+</html>
